@@ -63,6 +63,12 @@
   --ring: 265 80% 65%;
   
   --radius: 1rem;
+
+  --color-sh-primary: #f6aca2;
+  --color-sh-secondary: #f49b90;
+  --color-sh-tertiary: #f28b7d;
+  --color-sh-quaternary: #f07a6a;
+  --color-sh-quinary: #ee6352;
 }
 
 @layer base {
@@ -75,6 +81,68 @@
 }
 
 @layer utilities {
+  .text-shadows {
+    font-family: 'Bungee', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    color: var(--color-sh-primary);
+    animation: shadows 1.2s ease-in infinite;
+    letter-spacing: 0.2rem;
+  }
+
+  @keyframes shadows {
+    0% {
+      text-shadow: none;
+    }
+    10% {
+      transform: translate(-3px, -3px);
+      text-shadow: 3px 3px 0 var(--color-sh-secondary);
+    }
+    20% {
+      transform: translate(-6px, -6px);
+      text-shadow: 3px 3px 0 var(--color-sh-secondary),
+        6px 6px 0 var(--color-sh-tertiary);
+    }
+    30% {
+      transform: translate(-9px, -9px);
+      text-shadow: 3px 3px 0 var(--color-sh-secondary),
+        6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary);
+    }
+    40% {
+      transform: translate(-12px, -12px);
+      text-shadow: 3px 3px 0 var(--color-sh-secondary),
+        6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary),
+        12px 12px 0 var(--color-sh-quinary);
+    }
+    50% {
+      transform: translate(-12px, -12px);
+      text-shadow: 3px 3px 0 var(--color-sh-secondary),
+        6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary),
+        12px 12px 0 var(--color-sh-quinary);
+    }
+    60% {
+      text-shadow: 3px 3px 0 var(--color-sh-secondary),
+        6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary),
+        12px 12px 0 var(--color-sh-quinary);
+    }
+    70% {
+      text-shadow: 3px 3px 0 var(--color-sh-secondary),
+        6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary);
+    }
+    80% {
+      text-shadow: 3px 3px 0 var(--color-sh-secondary),
+        6px 6px 0 var(--color-sh-tertiary);
+    }
+    90% {
+      text-shadow: 3px 3px 0 var(--color-sh-secondary);
+    }
+    100% {
+      text-shadow: none;
+    }
+  }
+
   .text-shadow {
     text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
   }

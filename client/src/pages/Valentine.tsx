@@ -70,8 +70,8 @@ export default function ValentinePage() {
             transition={{ duration: 1 }}
             className="z-10 text-center"
           >
-            <h1 className="font-hand text-6xl text-primary font-bold drop-shadow-sm">
-              Hey there... ❤️
+            <h1 className="text-shadows text-6xl px-4">
+              hey!! Kuki ❤
             </h1>
           </motion.div>
         )}
@@ -99,7 +99,7 @@ export default function ValentinePage() {
                 key={state}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="font-comic text-3xl font-bold text-foreground mb-8"
+                className="text-shadows text-2xl mb-8 leading-tight"
               >
                 {state === "q1" ? "Will you trigger this event with me?" : "Are you 1000% sure?"}
               </motion.h2>
@@ -151,7 +151,7 @@ export default function ValentinePage() {
                 className="w-full h-auto rounded-xl"
               />
               <div className="text-center mt-4 mb-2">
-                 <h2 className="font-hand text-3xl font-bold text-primary">See you soon! 💌</h2>
+                 <h2 className="text-shadows text-2xl">See you soon! 💌</h2>
               </div>
             </div>
           </motion.div>
