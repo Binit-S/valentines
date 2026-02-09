@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+/* Import Caveat and Courgette */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Courgette&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -24,8 +26,9 @@
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 
-  --font-hand: 'Patrick Hand', cursive;
-  --font-comic: 'Comic Neue', cursive;
+  /* UPDATED FONTS */
+  --font-hand: 'Courgette', cursive;   /* Fancy/Elegant Cute */
+  --font-cute: 'Caveat', cursive;      /* Handwritten/Playful Cute */
   --font-sans: 'Fredoka', sans-serif;
   
   --radius-lg: 1rem;
@@ -33,9 +36,9 @@
 }
 
 :root {
-  /* Purple Palette - Soft & Romantic */
-  --background: 270 50% 96%; /* Very light lavender */
-  --foreground: 270 60% 20%; /* Deep purple text */
+  /* Purple Palette */
+  --background: 270 50% 96%; 
+  --foreground: 270 60% 20%; 
   
   --card: 0 0% 100%;
   --card-foreground: 270 60% 20%;
@@ -43,16 +46,16 @@
   --popover: 0 0% 100%;
   --popover-foreground: 270 60% 20%;
   
-  --primary: 265 80% 65%; /* Vibrant purple */
+  --primary: 265 80% 65%; 
   --primary-foreground: 0 0% 100%;
   
-  --secondary: 265 30% 90%; /* Soft lilac */
+  --secondary: 265 30% 90%; 
   --secondary-foreground: 265 80% 40%;
   
   --muted: 265 20% 94%;
   --muted-foreground: 265 10% 40%;
   
-  --accent: 330 80% 90%; /* Pink accent */
+  --accent: 330 80% 90%; 
   --accent-foreground: 330 80% 40%;
   
   --destructive: 0 84.2% 60.2%;
@@ -82,6 +85,8 @@
 
 @layer utilities {
   .text-shadows {
+    text-shadow: 3px 3px 0 var(--color-sh-secondary), 6px 6px 0 var(--color-sh-tertiary),
+      9px 9px var(--color-sh-quaternary), 12px 12px 0 var(--color-sh-quinary);
     font-family: 'Bungee', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
@@ -89,62 +94,105 @@
     margin: 0;
     color: var(--color-sh-primary);
     animation: shadows 1.2s ease-in infinite;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.4rem;
+    will-change: transform;
+    -webkit-font-smoothing: auto;
+    transform: translateZ(0);
   }
 
+  .text-minimal {
+    font-family: var(--font-cute); /* Now uses Caveat */
+    color: var(--color-sh-primary);
+    text-shadow: 2px 2px 0px var(--color-sh-secondary);
+    animation: float 3s ease-in-out infinite;
+    letter-spacing: 0.05rem; /* Adjusted for Caveat */
+    line-height: 1.2;
+    font-weight: 700; /* Caveat looks better bold */
+  }
+
+  /* --- 3D BUTTON STYLES --- */
+  .btn-3d {
+    --btn-bg: #ffe4e6; 
+    --btn-face: #f472b6; 
+    --btn-shadow: #e879f9; 
+    --btn-border: #9333ea; 
+
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    
+    font-size: 1.25rem; /* Increased slightly for Caveat readability */
+    
+    color: var(--btn-border);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: var(--font-cute); /* Use Caveat */
+    padding: 0.75em 1.5em;
+    border: 2px solid var(--btn-border);
+    border-radius: 1em;
+    background: var(--btn-bg);
+    transform-style: preserve-3d;
+    transition: all 175ms cubic-bezier(0, 0, 1, 1);
+    min-width: 120px; 
+    text-align: center;
+  }
+
+  .btn-3d::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--btn-face);
+    border-radius: inherit;
+    box-shadow: 0 0 0 2px var(--btn-shadow), 0 0.6em 0 0 var(--btn-border);
+    transform: translate3d(0, 0.6em, -1em);
+    transition: all 175ms cubic-bezier(0, 0, 1, 1);
+  }
+
+  .btn-3d:hover {
+    background: var(--btn-face);
+    transform: translate(0, 0.3em);
+  }
+
+  .btn-3d:hover::before {
+    transform: translate3d(0, 0.6em, -1em);
+  }
+
+  .btn-3d:active {
+    transform: translate(0em, 0.6em);
+  }
+
+  .btn-3d:active::before {
+    transform: translate3d(0, 0, -1em);
+    box-shadow: 0 0 0 2px var(--btn-shadow), 0 0.2em 0 0 var(--btn-shadow);
+  }
+  
   @keyframes shadows {
-    0% {
-      text-shadow: none;
-    }
-    10% {
-      transform: translate(-3px, -3px);
-      text-shadow: 3px 3px 0 var(--color-sh-secondary);
-    }
-    20% {
-      transform: translate(-6px, -6px);
-      text-shadow: 3px 3px 0 var(--color-sh-secondary),
-        6px 6px 0 var(--color-sh-tertiary);
-    }
-    30% {
-      transform: translate(-9px, -9px);
-      text-shadow: 3px 3px 0 var(--color-sh-secondary),
-        6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary);
-    }
-    40% {
-      transform: translate(-12px, -12px);
-      text-shadow: 3px 3px 0 var(--color-sh-secondary),
-        6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary),
-        12px 12px 0 var(--color-sh-quinary);
-    }
-    50% {
-      transform: translate(-12px, -12px);
-      text-shadow: 3px 3px 0 var(--color-sh-secondary),
-        6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary),
-        12px 12px 0 var(--color-sh-quinary);
-    }
-    60% {
-      text-shadow: 3px 3px 0 var(--color-sh-secondary),
-        6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary),
-        12px 12px 0 var(--color-sh-quinary);
-    }
-    70% {
-      text-shadow: 3px 3px 0 var(--color-sh-secondary),
-        6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary);
-    }
-    80% {
-      text-shadow: 3px 3px 0 var(--color-sh-secondary),
-        6px 6px 0 var(--color-sh-tertiary);
-    }
-    90% {
-      text-shadow: 3px 3px 0 var(--color-sh-secondary);
-    }
-    100% {
-      text-shadow: none;
-    }
+    /* ... same shadows animation ... */
+    0% { text-shadow: none; }
+    10% { transform: translate(-3px, -3px); text-shadow: 3px 3px 0 var(--color-sh-secondary); }
+    20% { transform: translate(-6px, -6px); text-shadow: 3px 3px 0 var(--color-sh-secondary), 6px 6px 0 var(--color-sh-tertiary); }
+    30% { transform: translate(-9px, -9px); text-shadow: 3px 3px 0 var(--color-sh-secondary), 6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary); }
+    40% { transform: translate(-12px, -12px); text-shadow: 3px 3px 0 var(--color-sh-secondary), 6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary), 12px 12px 0 var(--color-sh-quinary); }
+    50% { transform: translate(-12px, -12px); text-shadow: 3px 3px 0 var(--color-sh-secondary), 6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary), 12px 12px 0 var(--color-sh-quinary); }
+    60% { text-shadow: 3px 3px 0 var(--color-sh-secondary), 6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary), 12px 12px 0 var(--color-sh-quinary); }
+    70% { text-shadow: 3px 3px 0 var(--color-sh-secondary), 6px 6px 0 var(--color-sh-tertiary), 9px 9px var(--color-sh-quaternary); }
+    80% { text-shadow: 3px 3px 0 var(--color-sh-secondary), 6px 6px 0 var(--color-sh-tertiary); }
+    90% { text-shadow: 3px 3px 0 var(--color-sh-secondary); }
+    100% { text-shadow: none; }
   }
 
-  .text-shadow {
-    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
   }
   
   .grid-bg {
@@ -153,9 +201,5 @@
       linear-gradient(to right, rgba(147, 51, 234, 0.1) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(147, 51, 234, 0.1) 1px, transparent 1px);
     mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
-  }
-  
-  .sticker-shadow {
-    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
   }
 }
