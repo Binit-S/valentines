@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import sticker1 from "@assets/sticker_1_1770624033531.jpg";
-import sticker2 from "@assets/sticker_2_1770624033531.jpg";
-import sticker3 from "@assets/sticker_3_1770624033530.jpg";
-import sticker4 from "@assets/sticker_4_1770624033530.jpg";
-import sticker5 from "@assets/sticker_5_1770624033528.jpg";
-import sticker6 from "@assets/sticker_6_1770624033528.jpg";
+import sticker1 from "@assets/sticker 1.jpg";
+import sticker2 from "@assets/sticker 1.jpg";
+import sticker3 from "@assets/sticker 1.jpg";
+import sticker4 from "@assets/sticker 1.jpg";
+import sticker5 from "@assets/sticker 1.jpg";
+import sticker6 from "@assets/sticker 1.jpg";
 
 export function StickerBackground() {
   const stickers = [

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Play, SkipBack, SkipForward, Pause } from "lucide-react";
 import { useState } from "react";
-import musicPlayerImg from "@assets/music_player_1770624033532.jpg";
+import musicPlayerImg from "@assets/musicplayer.jpg";
 
 export function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);

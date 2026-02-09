@@ -6,8 +6,8 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Heart, X } from "lucide-react";
 import confetti from "canvas-confetti";
-import endingImg from "@assets/ending_page_1770624033532.jpg";
-import profileImg from "@assets/profile_1_1770624033529.jpg";
+import endingImg from "@assets/ending page.webp";
+// import profileImg from "@assets/profile_1_1770624033529.jpg";
 
 type FlowState = "intro" | "q1" | "q2" | "ending";
 
@@ -88,12 +88,12 @@ export default function ValentinePage() {
             <Card className="bg-white/90 backdrop-blur-sm border-2 border-primary/20 shadow-2xl overflow-hidden rounded-3xl p-8 text-center relative">
               {/* Card Decoration */}
               <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-accent to-primary" />
-              
+{/*               
               <div className="mb-6 flex justify-center">
                  <div className="w-32 h-32 rounded-full border-4 border-white shadow-lg overflow-hidden">
                     <img src={profileImg} alt="Us" className="w-full h-full object-cover" />
                  </div>
-              </div>
+              </div> */}
 
               <motion.h2 
                 key={state}
