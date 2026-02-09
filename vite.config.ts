@@ -22,7 +22,7 @@ export default defineConfig(async () => {
     plugins,
     root: "client",
     build: {
-      outDir: "client/dist",
+      outDir: "../dist",
       emptyOutDir: true,
     },
     resolve: {
